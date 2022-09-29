@@ -9,6 +9,8 @@ fetch('https://servicodados.ibge.gov.br/api/v1/localidades/regioes?orderBy=nome'
 
 
 function buscarEstado(){
+document.getElementById('estado').innerHTML = `
+<option>-- Selecione-- </option>`
 fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/regioes/${regiao.value}/estados?orderBy=nome`)
 .then((resposta)=> resposta.json())
 .then((estado) => {
@@ -21,6 +23,8 @@ fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/regioes/${regiao.valu
 }
 
 function buscarCidade(){
+    document.getElementById('cidade').innerHTML = `
+    <option>-- Selecione --</option>`
     fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/distritos?orderBy=nome`)
     .then((resposta)=> resposta.json())
     .then((cidade) => {
@@ -33,4 +37,3 @@ function buscarCidade(){
     }
     
 
-// Heroi em tempo integral...
